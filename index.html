@@ -102,12 +102,12 @@
   <div id="personajes" class="section">
     <h2>Personajes Destacados</h2>
     <ul>
-      <li>Sans</li> <img src="\imagenes\sans.png" width="150" height="150">
-      <li>Frisk</li> <img src="\imagenes/frisk1.PNG" width="150" height="150">
-      <li>Papyrus</li> <img src="\imagenes/papyrus.jpg" width="150" height="150">
-      <li>Kris</li> <img src="\imagenes/kris.webp" width="150" height="150">
-      <li>Ralsei</li> <img src="\imagenes/ralsei.webp" width="150" height="150">
-      <li>Susie</li> <img src="\imagenes/susie.jpg" width="150" height="150">
+      <li>Sans</li> <img src="\imagenes\sans.png" alt= "sans" width="150" height="150">
+      <li>Frisk</li> <img src="\imagenes/frisk1.PNG" alt= "frisk1" width="150" height="150">
+      <li>Papyrus</li> <img src="\imagenes/papyrus.jpg" alt= "papyrus"  width="150" height="150">
+      <li>Kris</li> <img src="\imagenes/kris.webp" alt=kris width="150" height="150">
+      <li>Ralsei</li> <img src="\imagenes/ralsei.webp" alt= "realsei" width="150" height="150">
+      <li>Susie</li> <img src="\imagenes/susie.jpg" alt="susie" width="150" height="150">
     </ul>
   </div>
 
@@ -122,11 +122,11 @@
       appId: "1:382838862726:web:bef77076da1fca2af6f207"
     };
 
-    // Inicializa Firebase
+    
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    // Publicar un comentario
+
     async function publicarComentario() {
       const texto = document.getElementById("comentario").value.trim();
       if (texto !== "") {
@@ -139,7 +139,7 @@
     }
 
     
-    // Mostrar comentarios en tiempo real
+    
 function mostrarComentarios() {
   const lista = document.getElementById("comentarios-lista");
   db.collection("comentarios").orderBy("fecha", "desc").onSnapshot(snapshot => {
@@ -147,13 +147,13 @@ function mostrarComentarios() {
     snapshot.forEach(doc => {
       const div = document.createElement("div");
       div.className = "comment";
-      div.textContent = doc.data().texto;  // Agregar texto del comentario
-      lista.appendChild(div);  // Agregar el div a la lista
+      div.textContent = doc.data().texto;  
+      lista.appendChild(div);  
     });
   });
 }
 
-    // Conectar evento del botón
+    
     document.getElementById("publicar-btn").addEventListener("click", publicarComentario);
     mostrarComentarios();
   </script>
